@@ -1,0 +1,38 @@
+.filterNamingImgHolder{
+    padding-top: 3px;
+}
+
+.filterNamingHolder{
+    background-color: black;
+    color:#FFF;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 10px;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+}
+
+.filterNamingImg{
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.filterNamingImg.open{
+    transform: rotate(180deg);
+}
+
+.sizeItemsButtonsHolder{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    display: none;
+    opacity: 0;
+}
+
+.sizeItemsButtonsHolder.open{
+    display: flex;
+    opacity: 1;
+}

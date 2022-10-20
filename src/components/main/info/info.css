@@ -1,0 +1,18 @@
+.infoHolder{
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 19%);
+}
+
+.infoItem{
+    color:#000;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+}
+
+.infoItem:hover{
+    opacity: 0.55;
+}

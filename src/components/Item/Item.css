@@ -1,0 +1,47 @@
+li {
+    list-style-type: none; 
+}
+ul {
+    margin: 0; 
+    padding: 0;}
+
+.filterHolder{
+    margin-bottom: 10px;
+}
+
+.filterNamingHolder{
+    background-color: black;
+    color:#FFF;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 10px;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterItemsHolder{
+    margin:0;
+    display: none;
+    opacity: 0;
+    transition:all 0.3s ease;
+} 
+
+.filterItemsHolder.open{
+    display: block;
+    opacity: 1;
+    margin: 10px 0 5px 35px;
+}
+
+.filterNamingImgHolder{
+    padding-top: 3px;
+}
+
+.filterNamingImg{
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.filterNamingImg.open{
+    transform: rotate(180deg);
+}

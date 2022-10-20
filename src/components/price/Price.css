@@ -1,0 +1,130 @@
+.filterNamingImgHolder{
+    padding-top: 3px;
+}
+
+.filterNamingImg{
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.filterNamingImg.open{
+    transform: rotate(180deg);
+}
+
+.filterNamingHolder{
+    background-color: black;
+    color:#FFF;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 10px;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s ease;
+}
+
+.sizeItemHolder{
+    margin-bottom: 10px;
+}
+
+.filterInputsHolder{
+    padding: 10px;
+    display: none;
+    opacity: 0;
+} 
+
+.filterInputsHolder.open{
+    display: block;
+    opacity: 1;
+}
+
+.filterPriceFlex{
+    display: flex;
+    gap:20px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.inputLabel{
+    display: flex;
+    gap:5px;
+    font-size: 13px;
+}
+
+.filterInput{
+    width:65px;
+    height: 20px;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.filterPriceHolder{
+    margin-bottom: 10px;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.filterInputLine{
+    width: 10px;
+    height: 1px;
+    background: black;
+    margin-top: 11px;
+}
+
+.filterPriceSlider{
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: #DDD;
+    position: relative;
+}
+
+.filterPriceProgres{
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    background: rgb(127, 202, 176);
+}
+
+.filterPriceRangeInput{
+    position:relative;
+}
+
+.filterPriceRangeInput input{
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -5px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: #17A2B8;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+
+input[type="range"]::-moz-range-thumb{
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    background: #17A2B8;
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}

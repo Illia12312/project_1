@@ -1,0 +1,24 @@
+.logOut {
+  margin: 60px;
+  text-align: center;
+}
+
+.logOutTitle {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.logOutButton {
+  width: 400px;
+  height: 40px;
+  border: 1px solid black;
+  background: none;
+  background-color: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 60px;
+}
+
+.logOutButton:hover {
+  background: rgb(172, 85, 85);
+}

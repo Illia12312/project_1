@@ -1,0 +1,59 @@
+.NewModels{
+    text-align: center;
+    padding: 0 150px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 1200px){
+    .NewModels{
+        padding: 0 100px;
+    }
+}
+
+@media (max-width: 940px){
+    .NewModels{
+        padding: 0 70px;
+    }
+}
+
+@media (max-width: 640px){
+    .NewModels{
+        padding: 0 15px;
+    }
+}
+
+.newItemsHolder{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.NewModelsSmallTitle{
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.NewModelsTitle{
+    margin: 10px 0;
+    font-size: 26px;
+}   
+
+.NewModelsButton{
+    border-radius: 0;
+    border: 1px solid black;
+    padding: 10px 30px;
+    color: black;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.NewModelsButton:hover{
+    color: #ABA8A9;
+    border: 1px solid #ABA8A9;
+}

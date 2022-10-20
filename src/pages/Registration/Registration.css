@@ -1,0 +1,94 @@
+.registration{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.login{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.loginTitle{
+    margin:0;
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+
+.loginInput{
+    height: 36px;
+    width: 400px;
+    margin-bottom: 20px;
+    padding-left: 7px;
+    font-size: 16px;
+}
+
+.labelHolder{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+#loginCheckbox{
+    margin-right:7px;
+}
+
+.loginButton{
+    width: 415px;
+    height: 40px;
+    border: 1px solid black;
+    background: none;
+}
+
+.blue{
+    background-color: rgb(76, 76, 151);
+    color: #FFF;
+    transition: opacity 0.4s ease;
+}
+
+.buttonHolder{
+    margin-bottom: 15px;
+}
+
+.spanHolder{
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.loginLink{
+    color: black;
+}
+
+.loginLink:hover{
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.blue:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.opacity{
+    transition: all 0.4 ease;
+}
+
+.opacity:hover{
+    background-color: rgb(60, 170, 60);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.passwordHolder{
+    transition: color 0.3s ease;
+}
+
+.passwordHolder:hover{
+    color:rgb(60, 170, 60);
+    cursor: pointer;
+}
+
+.form{
+    margin-bottom: 30px;
+}
