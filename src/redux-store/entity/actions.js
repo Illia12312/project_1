@@ -2,6 +2,8 @@ import {
     GET_DATA_FAILURE,
     GET_DATA_REQUEST,
     GET_DATA_SUCCESS,
+    SET_USER,
+    REMOVE_USER,
   } from "./constants";
   
   
@@ -22,3 +24,23 @@ import {
       error,
     },
   });
+
+    export const setUserAction = (email, token, id, name) => ({
+      type: SET_USER,
+      payload: {
+        email,
+        token, 
+        id, 
+        name,
+      },
+    });
+
+    export const romoveUserAction = (email, token, id, name) => ({
+      type: REMOVE_USER,
+      payload: {
+        email,
+        token, 
+        id, 
+        name,
+      },
+    });

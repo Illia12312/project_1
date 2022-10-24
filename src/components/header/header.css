@@ -68,6 +68,13 @@
     height: 30px;
 }
 
+.searchHolder{
+    position: absolute;
+    padding: 1px;
+    width: 100vw;
+    left: 0;
+}
+
 .infoHolder{
     display: flex;
     justify-content: center;

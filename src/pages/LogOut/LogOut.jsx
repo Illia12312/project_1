@@ -1,14 +1,14 @@
 import "./LogOut.css";
-import { removeUser } from "store/slices/useSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Gallery from "components/main/gallery/Gallery";
+import {romoveUserAction} from 'redux-store/entity/actions'
 
 const LogOut = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const backFunc = () => {
-    dispatch(removeUser());
+    dispatch(romoveUserAction());
     navigate("/");
   };
   return (

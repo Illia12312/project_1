@@ -8,22 +8,24 @@ import {
   charactersSelector,
   characterStatusSelector,
 } from "../../redux-store/entity/selectors";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 const NewModels = () => {
+  const [counter, setCounter] = useState(0);
+  const [amount, setAmount] = useState(10)
+  const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const characters = useSelector(charactersSelector);
-  const status = useSelector(characterStatusSelector);
-  // useEffect(() => {
-  //   dispatch(getPosts());
-  // }, []);
 
   useEffect(() => {
     dispatch(getDataRequestAction());
   }, []);
+
+  // status !== "SUCCESS" ? console.log('dsfsd') : setData(characters.slice(0,amount))
+
+  // console.log(data);
   
-  console.log(characters);
 
   return (
     <div className="NewModels">
@@ -32,14 +34,14 @@ const NewModels = () => {
         <h3 className="NewModelsSmallTitle">НОВЫЕ ПОСТУПЛЕНИЯ</h3>
       </div>
       <div className="newItemsHolder">
-        {/* {posts.map((i) => (
+        {characters.map((i) => (
           <Products
             name={i.brand}
             gender={i.gender}
             price={i.price}
-            key={i.price}
+            key={i.id}
           />
-        ))} */}
+        ))}
       </div>
       <button className="NewModelsButton">Показать ещё</button>
     </div>

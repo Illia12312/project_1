@@ -1,9 +1,9 @@
 import './Registration.css';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setUser } from 'store/slices/useSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
+import { setUserAction } from 'redux-store/entity/actions';
 
 function Registration() {
   const dispatch = useDispatch()
@@ -17,19 +17,18 @@ function Registration() {
   const handleClick = (email, password, name) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password, name)
-        .then(({user}) => {
+        .then((user) => {
           console.log(user);
-          dispatch(setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-            name: user.name,
-          }))
+          dispatch(setUserAction(
+            email,
+            user.uid,
+            password,
+            name,
+          ))
           backFunc();
         })
         .catch(console.error)
     }
-
 
   return (
     <div className='registration'>
@@ -47,7 +46,7 @@ function Registration() {
       </form>
       <div className='buttonsHolder'>
         <div className='buttonHolder'>
-            <button className='loginButton opacity' onClick={() => handleClick(email, password)}>ЗАРЕГИСТРИРОВАТЬСЯ</button>
+            <button className='loginButton opacity' onClick={() => handleClick(email, password, name)}>ЗАРЕГИСТРИРОВАТЬСЯ</button>
         </div>
         <div className='spanHolder'>
             <span>ИЛИ</span>

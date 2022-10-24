@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setUser } from 'store/slices/useSlice';
+import { setUserAction } from 'redux-store/entity/actions';
 import {useNavigate} from 'react-router-dom';
 
 const Login = () =>{
@@ -20,13 +20,13 @@ const Login = () =>{
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             console.log(user);
-            dispatch(setUser({
-              email: user.email,
-              id: user.uid,
-              token: user.accessToken,
-            }))
+            dispatch(setUserAction(
+              email,
+              user.accessToken,
+              user.uid,
+            ))
             backFunc();})
-        .catch(alert('Такого пользователя не найдено'))
+        .catch(console.log());
     }
 
     return(

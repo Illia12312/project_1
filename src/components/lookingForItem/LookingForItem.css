@@ -1,0 +1,30 @@
+.LookingForImg{
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    padding: 1px;
+    border: 1px solid black;
+}
+
+.LookingForItem{
+    display: flex;
+    justify-content: start;
+    gap: 30px;
+    z-index: 10;
+    background-color: #FFF;
+    border-bottom: 1px solid black;
+    
+}
+
+.name{
+    margin-bottom: 8px;
+}
+
+.price{
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.infoHolderLL{
+    margin-top: 15px;
+}
