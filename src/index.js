@@ -4,8 +4,9 @@ import App from './components/App';
 import './index.css';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {store} from './store';
+// import {store} from './store';
 import './firebase';
+import { store } from "./redux-store/index";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

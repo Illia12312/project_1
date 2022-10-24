@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Gallery from "components/main/gallery/Gallery";
 
 const LogOut = () => {
-  const name = useSelector((state) => state.user.name);
-  console.log(name);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const backFunc = () => {
@@ -15,7 +13,7 @@ const LogOut = () => {
   };
   return (
     <div className="logOut">
-      <h3 className="logOutTitle">{name}, хотите выйти из аккаунта?</h3>
+      <h3 className="logOutTitle">Xотите выйти из аккаунта?</h3>
       <button className="logOutButton" onClick={backFunc}>
         ВЫЙТИ
       </button>

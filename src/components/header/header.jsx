@@ -7,11 +7,11 @@ import search from "../../img/search.png";
 import { useState } from "react";
 import Like from "./like/Like";
 import { Link } from "react-router-dom";
-import { useAuth } from "hooks/useAuth";
+// import { useAuth } from "hooks/useAuth";
 
 const Header = () => {
   const [likeOpen, setLikeOpen] = useState(false);
-  const { isAuth } = useAuth();
+  // const { isAuth } = useAuth();
 
   return (
     <div className="headerWrapper">
@@ -34,7 +34,7 @@ const Header = () => {
           <Link to="/cart">
             <img src={cart} alt="cart" className="imgCart headerIcon" />
           </Link>
-          {isAuth ? (
+          {/* {isAuth ? (
             <Link to="/logOut">
               <img src={user} alt="user" className="imgUser headerIcon" />
             </Link>
@@ -42,7 +42,7 @@ const Header = () => {
             <Link to="/login">
               <img src={user} alt="user" className="imgUser headerIcon" />
             </Link>
-          )}
+          )} */}
         </div>
       </div>
       <div className="infoHolder">

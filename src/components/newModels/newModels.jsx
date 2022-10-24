@@ -1,17 +1,29 @@
 import "./newModels.css";
 import Products from "../product/Product";
+import {
+  getDataSuccessAction,
+  getDataRequestAction,
+} from "../../redux-store/entity/actions";
+import {
+  charactersSelector,
+  characterStatusSelector,
+} from "../../redux-store/entity/selectors";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "store/slices/postSlice";
 
 const NewModels = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPosts());
-  }, []);
+  const characters = useSelector(charactersSelector);
+  const status = useSelector(characterStatusSelector);
+  // useEffect(() => {
+  //   dispatch(getPosts());
+  // }, []);
 
-  const posts = useSelector((state) => state.posts);
-  console.log(posts);
+  useEffect(() => {
+    dispatch(getDataRequestAction());
+  }, []);
+  
+  console.log(characters);
 
   return (
     <div className="NewModels">
