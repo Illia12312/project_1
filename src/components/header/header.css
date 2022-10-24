@@ -75,6 +75,18 @@
     left: 0;
 }
 
+.searchHolder.empty{
+    text-align: center;
+    background-color: #FFF;
+    box-shadow: 0 20px 16px -16px rgba(0,0,0,0.6);
+}
+
+.emptyDiv{
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 50px 0;
+}
+
 .infoHolder{
     display: flex;
     justify-content: center;

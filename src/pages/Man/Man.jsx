@@ -5,13 +5,8 @@ import Product from "components/product/Product";
 import SizeItem from "components/sizeItem/SizeItem";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Genderpage from "../../components/genderPage/GenderPage";
 
 function Man() {
-  // const dispatch = useDispatch();
-  // const value = useSelector((state) => state.sort.value);
-  // console.log(value);
   const [value, setValue] = useState("");
 
   const [data, setData] = useState([]);

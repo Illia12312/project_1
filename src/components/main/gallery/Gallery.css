@@ -9,7 +9,7 @@
     transition: color 0.3 ease-in-out;
 }
 
-.galleryHolder:hover{
+.galleryHolder:hover .galleryHolderTitle{
     color:rgb(33, 207, 33);
 }
 

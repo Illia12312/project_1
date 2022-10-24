@@ -3,7 +3,7 @@ a{
     color:black;
 }
 
-.productWrap{
+.productWrapL{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.4);
@@ -18,28 +18,30 @@ a{
     transition: 0.4s;
 }
 
-.productWrap.active{
+.productWrapL.active{
     pointer-events: all;
     opacity: 1;
     display: flex;
 }
 
-.Product{
+.ProductL{
     margin: 35px 190px;
     display: flex;
     gap:60px;
     position: relative;
+    background-color: #FFF;
+    padding: 25px;
 }
 
 .productCloser{
     color: black;
     background-color: #FFF;
-    padding: 2px;
-    border: 1px solid black;
-    border-radius: 50%;
     position: absolute;
-    right: 5px;
+    right: 25px;
     top: 5px;
+    width: 15px;
+    padding: 10px;
+    font-size: 30px;
 }
 
 .productImg img{
@@ -142,6 +144,7 @@ a{
     margin-right: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border: 1px solid black;
 }
 
 .productCount:hover{

@@ -1,11 +1,11 @@
 import "./ProductPopup.css";
 import kros from './img/kros.jpg';
 
-function ProductPopup({active, setActive, name, gender, price}) {
+function ProductPopup({active, name, gender, price, setActive}) {
   return (
-    <div className={active ? "productWrap active" : "productWrap"}>
-      <div className={active ? "Product active" : "Product"} onClick={e => e.stopPropagation()}>
-        <div className="productCloser" onClick={setActive(false)}>X</div>
+    <div className={active ? "productWrapL active" : "productWrapL"}>
+      <div className={active ? "ProductL active" : "ProductL"} onClick={e => e.stopPropagation()}>
+        <div className="productCloser" onClick={() => setActive(false)}>x</div>
         <div className="productImgHolder">
           <div className="productImg">
             <img src={kros} alt="img" />

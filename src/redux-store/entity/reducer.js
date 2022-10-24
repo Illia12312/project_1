@@ -2,7 +2,7 @@ import {
     GET_DATA_REQUEST,
     GET_DATA_SUCCESS,
     SET_USER,
-    REMOVE_USER
+    REMOVE_USER,
   } from "./constants";
   
   import { FETCH_STATUSES } from "../../constants/index";
@@ -14,7 +14,7 @@ import {
     email: null,
     token: null,
     id: null,
-    name: null
+    name: null,
   };
   
   const reducer = (state = initialState, action) => {

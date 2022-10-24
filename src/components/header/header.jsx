@@ -8,16 +8,21 @@ import { useState } from "react";
 import Like from "./like/Like";
 import { Link } from "react-router-dom";
 import { useAuth } from "hooks/useAuth";
-import { useSelector } from "react-redux";
-import { useLookinFor } from "hooks/useAuth";
+import { useLookinFor } from "hooks/useSearch";
 import { useEffect } from "react";
 import LookingForItem from "components/lookingForItem/LookingForItem";
+import { useDispatch } from "react-redux";
+import { getDataRequestAction } from "redux-store/entity/actions";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [likeOpen, setLikeOpen] = useState(false);
   const { isAuth } = useAuth();
   const [value, setValue] = useState('');
-  let {response} = useLookinFor(value)
+  useEffect(() => {
+    dispatch(getDataRequestAction());
+  }, []);
+  let {response} = useLookinFor(value);
 
   return (
     <div className="headerWrapper">
@@ -36,8 +41,8 @@ const Header = () => {
             value={value}
             onChange={(e) => setValue(e.target.value)}
           ></input>
-          {value }
-          {response !== [] && <div className="searchHolder">{response.map((i) => (<LookingForItem name={i[0]} price={i[1]} />))}</div>}
+          {value !== '' && <div className="searchHolder empty"><div className="emptyDiv">НИЧЕГО НЕ НАЙДЕНО</div></div>}
+          {response !== [] && <div className="searchHolder">{response.map((i) => (<LookingForItem key={i[0]+i[1]} name={i[0]} price={i[1]} />))}</div>}
           <span onClick={() => setLikeOpen(true)}>
             <img src={like} alt="like" className="imgLike headerIcon" />
           </span>
@@ -59,10 +64,16 @@ const Header = () => {
         <Link className="customLink" to="/man">
           <div className="infoItem">Мужчины</div>
         </Link>
-        <div className="infoItem">Женщины</div>
-        <div className="infoItem">Дети</div>
+        <Link className="customLink" to="/woman">
+          <div className="infoItem">Женщины</div>
+        </Link>
+        <Link className="customLink" to="/kids">
+          <div className="infoItem">Дети</div>
+        </Link>
         <div className="infoItem">Брэнды</div>
-        <div className="infoItem">Скидки</div>
+        <Link className="customLink" to="/discounts">
+          <div className="infoItem">Скидки</div>
+        </Link>
       </div>
       <Like active={likeOpen} setActive={setLikeOpen} />
     </div>

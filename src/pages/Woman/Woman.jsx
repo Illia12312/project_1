@@ -1,14 +1,42 @@
 import "../Man/Man.css";
+import "./Woman.css";
+import Item from "components/Item/Item";
+import Price from "components/price/Price";
+import Product from "components/product/Product";
+import SizeItem from "components/sizeItem/SizeItem";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Woman = () => {
+  const [value, setValue] = useState("");
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(
+      `https://633db5337e19b17829149247.mockapi.io/sneakers/sneakers/?sortBy${value}&`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      });
+    console.log(value);
+  }, [value]);
+
+  return(
   <div className="productPage">
     <div className="productsItemWrap">
-      <h3 className="productsItemTitle">ДЛЯ ЧОЛОВІКІВ</h3>
-      <select name="select" id="manSelect" className="manSelect">
-        <option value="all">Все</option>
-        <option value="asc">Цена по возрастанию</option>
-        <option value="desc">Цена по убыванию</option>
-      </select>
+      <h3 className="productsItemTitle">ДЛЯ ЖЕНЩИН</h3>
+      <select
+          name="select"
+          id="manSelect"
+          className="manSelect"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        >
+          <option value="">Все</option>
+          <option value="=price&order=asc">Цена по возрастанию</option>
+          <option value="=price&order=desc">Цена по убыванию</option>
+        </select>
     </div>
     <div className="filterWrap">
       <div className="filter">
@@ -33,7 +61,8 @@ const Woman = () => {
         )}
       </div>
     </div>
-  </div>;
+  </div>
+  )
 };
 
 export default Woman;

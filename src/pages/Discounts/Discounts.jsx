@@ -1,4 +1,4 @@
-import './Kids.css';
+import './Discount.css';
 import "../Man/Man.css";
 import Item from "components/Item/Item";
 import Price from "components/price/Price";
@@ -7,7 +7,7 @@ import SizeItem from "components/sizeItem/SizeItem";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const Kids = () => {
+const Discounts = () => {
 const [value, setValue] = useState("");
 
 const [data, setData] = useState([]);
@@ -25,7 +25,7 @@ useEffect(() => {
 return(
 <div className="productPage">
     <div className="productsItemWrap">
-    <h3 className="productsItemTitle">ДЛЯ ДЕТЕЙ</h3>
+    <h3 className="productsItemTitle">СКИДКИ</h3>
     <select
         name="select"
         id="manSelect"
@@ -50,7 +50,7 @@ return(
     <div className="productsHolder">
         {data.map(
         (item) =>
-            item.gender === "kid" && (
+            item.disount.isExist === true && (
             <Product
                 name={item.id}
                 gender={item.gender}
@@ -65,4 +65,4 @@ return(
 )
 };
 
-export default Kids;
+export default Discounts;

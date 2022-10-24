@@ -10,6 +10,7 @@ import {
 } from "./actions";
 import { get$ } from "../../services/fetchService";
 
+
 function* getDataSaga() {
     try {
         const res = yield call(get$, CHARACTERS_URL);

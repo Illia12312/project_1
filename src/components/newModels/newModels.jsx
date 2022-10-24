@@ -12,21 +12,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 const NewModels = () => {
-  const [counter, setCounter] = useState(0);
-  const [amount, setAmount] = useState(10)
-  const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const characters = useSelector(charactersSelector);
 
   useEffect(() => {
     dispatch(getDataRequestAction());
   }, []);
-
-  // status !== "SUCCESS" ? console.log('dsfsd') : setData(characters.slice(0,amount))
-
-  // console.log(data);
   
-
   return (
     <div className="NewModels">
       <div className="NewModelsTitleHolder">
