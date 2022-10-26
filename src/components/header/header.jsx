@@ -19,6 +19,7 @@ const Header = () => {
   const [likeOpen, setLikeOpen] = useState(false);
   const { isAuth } = useAuth();
   const [value, setValue] = useState('');
+  const [active, setActive] = useState(false);
   useEffect(() => {
     dispatch(getDataRequestAction());
   }, []);
@@ -70,7 +71,24 @@ const Header = () => {
         <Link className="customLink" to="/kids">
           <div className="infoItem">Дети</div>
         </Link>
-        <div className="infoItem">Брэнды</div>
+        <div className="infoItem" onMouseOver={() => setActive(true)} >Бренды</div>
+        <div className={active ? "brandsHolder active" : "brandsHolder" }  onMouseLeave={() => setActive(false)}>
+          <Link className="customLink" to='/brands/nike'>
+            <div className="brandItem">NIKE</div>
+          </Link>
+          <Link className="customLink" to='/brands/adidas'>
+            <div className="brandItem">ADIDAS</div>
+          </Link>
+          <Link className="customLink" to='/brands/puma'>
+            <div className="brandItem">PUMA</div>
+          </Link>
+          <Link className="customLink" to='/brands/converse'>
+            <div className="brandItem">CONVERSE</div>
+          </Link>
+          <Link className="customLink" to='/brands/jordan'>
+            <div className="brandItem">JORDAN</div>
+          </Link>
+        </div>
         <Link className="customLink" to="/discounts">
           <div className="infoItem">Скидки</div>
         </Link>

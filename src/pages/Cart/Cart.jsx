@@ -1,7 +1,11 @@
+import { useSelector } from 'react-redux';
 import './Cart.css';
 import Product from './components/Product/Product';
 
 function Cart() {
+  const email = useSelector((state) => state.entity.email)
+  const cart = JSON.parse(localStorage.getItem(email));
+
   return (
     <div className="cartWrapper">
       <header className="sectionCartHeader">

@@ -4,6 +4,8 @@ import {
     GET_DATA_SUCCESS,
     SET_USER,
     REMOVE_USER,
+    SET_AMOUNT,
+    GET_SPLICED_ITEMS,
   } from "./constants";
   
   
@@ -44,3 +46,11 @@ import {
         name,
       },
     });
+
+    export const setAmountAction = () =>({
+      type: SET_AMOUNT,
+    });
+
+    export const getSplicedItems = () => ({
+      type: GET_SPLICED_ITEMS,
+    })

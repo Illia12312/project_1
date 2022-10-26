@@ -10,6 +10,7 @@ import LogOut from 'pages/LogOut/LogOut';
 import Woman from 'pages/Woman/Woman';
 import Kids from 'pages/Kids/Kids';
 import Discounts from 'pages/Discounts/Discounts';
+import Brands from 'pages/brands/brands';
 
 const App = () =>{
     return(
@@ -25,6 +26,7 @@ const App = () =>{
                     <Route path="/woman" element={<Woman/>}/>
                     <Route path="/kids" element={<Kids/>}/>
                     <Route path="/discounts" element={<Discounts/>}/>
+                    <Route path="/brands/:brands" element={<Brands/>}/>
                 </Route>
             </Routes>
         </div>

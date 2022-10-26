@@ -18,7 +18,6 @@ function Man() {
       .then((data) => {
         setData(data);
       });
-    console.log(value);
   }, [value]);
 
   return (

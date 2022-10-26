@@ -3,6 +3,8 @@ import {
     GET_DATA_SUCCESS,
     SET_USER,
     REMOVE_USER,
+    SET_AMOUNT,
+    GET_SPLICED_ITEMS,
   } from "./constants";
   
   import { FETCH_STATUSES } from "../../constants/index";
@@ -15,6 +17,8 @@ import {
     token: null,
     id: null,
     name: null,
+    amount: 10,
+    splicedItems: [],
   };
   
   const reducer = (state = initialState, action) => {
@@ -45,6 +49,16 @@ import {
           token: null,
           id: null,
           name: null,
+        };
+        case SET_AMOUNT:
+        return{
+          ...state,
+          amount: state.amount + 10,
+        };
+        case GET_SPLICED_ITEMS:
+        return{
+          ...state,
+          splicedItems: state.characters.splice(0, state.amount),
         };
       default:
         return { ...state };

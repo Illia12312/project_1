@@ -39,6 +39,7 @@
     font-weight: 500;
     letter-spacing: 1;
     margin: 0;
+    margin-bottom: 20px;
 }
 
 .likeCancelButton{
@@ -92,6 +93,10 @@
     border: 1px black solid;
 }
 
+.likeMol{
+    margin-bottom: 15px;
+}
+
 .likeDeleteHOlder,
 .likePrice{
     width: 10vw;
@@ -99,6 +104,11 @@
 
 .likePrice{
     font-weight: 700;
+    margin-left: -40px;
+}
+
+.likeEmpty{
+    margin: 40px 0;
 }
 
 .likeDeleteButton{

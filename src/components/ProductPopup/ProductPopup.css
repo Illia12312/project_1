@@ -166,3 +166,26 @@ a{
 .productCart:hover{
     opacity: 0.6;
 }
+
+.productPopupHeart{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.countHolder{
+    position: relative;
+}
+
+.countNumbersHolder{
+    position: absolute;
+    width: 300px;
+    text-align: center;
+    top: 50px;
+}
+
+.countNumber{
+    background-color: #FFF;
+    border-bottom: 1px solid black;
+    padding: 10px 40px;
+}

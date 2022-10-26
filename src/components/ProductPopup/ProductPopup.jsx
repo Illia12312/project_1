@@ -1,7 +1,32 @@
 import "./ProductPopup.css";
 import kros from './img/kros.jpg';
+import heart from './img/heart.png';
+import { setCartAction, setLikeAction } from "redux-store/cart/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
-function ProductPopup({active, name, gender, price, setActive}) {
+function ProductPopup({active, name, gender, price, setActive, id}) {
+  const dispatch = useDispatch();
+  const email = useSelector((state) => state.entity.email);
+  const cart = useSelector((state) => state.cart.cart);
+  const [value, setValue] = useState(1);
+  const [activeCount, setActiveCount] = useState(false)
+
+  const isRegister = email !== null;
+  const isExist = email !== null && cart.length !== 0;
+  if(isExist){
+    localStorage.setItem(email, JSON.stringify(cart));
+  }
+  const customFunc = (cart, id, name, price, gender) =>{
+    dispatch(setCartAction(cart, id, name, price, gender, 2));
+  }
+  const likeFunc = (name, price, gender) => {
+    dispatch(setLikeAction(name, price, gender))
+  }
+  const activeFunc = (active, setActiveCount) => {
+    active ? setActiveCount(false) : setActiveCount(true);
+  }
+
   return (
     <div className={active ? "productWrapL active" : "productWrapL"}>
       <div className={active ? "ProductL active" : "ProductL"} onClick={e => e.stopPropagation()}>
@@ -36,18 +61,26 @@ function ProductPopup({active, name, gender, price, setActive}) {
             <button className="sizeButton">13.5</button>
             <button className="sizeButton">13.5</button>
           </div>
-          <div className="productInfoLike">
-            <label htmlFor="like" className="productInfoLikeHolder">
+          <div className="productInfoLike" onClick={e => e.stopPropagation()}> 
+            <label htmlFor="like" className="productInfoLikeHolder" onClick={() => likeFunc(name, price, gender)}>
               Добавить в избранное
               <a href="Добавить в избранное" className="like" id="like">
-                {" "}
-                X
               </a>
             </label>
+            <img src={heart} alt="heart" className="productPopupHeart"/>
           </div>
-          <div className="productInfoButtonHolder">
-            <button className="productCount">КОЛИЧЕСТВО</button>
-            <button className="productCart">ДОБАВИТЬ В КОРЗИНУ</button>
+          <div className="productInfoButtonHolder" onClick={e => e.stopPropagation()}>
+            {activeCount && <div className="countHolder">
+              <div className="countNumbersHolder">
+                <div className="countNumber" onClick={() => setValue(1)}>1</div>
+                <div className="countNumber" onClick={() => setValue(2)}>2</div>
+                <div className="countNumber" onClick={() => setValue(3)}>3</div>
+                <div className="countNumber" onClick={() => setValue(4)}>4</div>
+              </div>
+            </div>}
+            <button className="productCount" onClick={() => activeFunc(activeCount, setActiveCount)}>КОЛИЧЕСТВО {`(${value})`}</button>
+            {isRegister ? <button className="productCart" onClick={(e) => {customFunc(cart, id, name, price, gender, value); e.stopPropagation()}}>ДОБАВИТЬ В КОРЗИНУ</button>
+            : <button className="productCart" onClick={() => alert("Сначала зайдите в аккаунт")}>ДОБАВИТЬ В КОРЗИНУ</button>}
           </div>
         </div>
       </div>

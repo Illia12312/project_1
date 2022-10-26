@@ -3,7 +3,7 @@ import sneaker from "./../../img/sneaker.jpg";
 import ProductPopup from "components/ProductPopup/ProductPopup";
 import { useState } from "react";
 
-const Product = ({ name, gender, price }) => {
+const Product = ({ name, gender, price, id }) => {
   const [active, setActive] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ const Product = ({ name, gender, price }) => {
       <div className="newItemsName">{name}</div>
       <div className="newItemsGender">{gender}</div>
       <div className="newItemsPrice">{price} грн.</div>
-      <ProductPopup active={active} name={name} gender={gender} price={price} setActive={setActive}/>
+      <ProductPopup active={active} name={name} gender={gender} price={price} setActive={setActive} id={id}/>
     </div>
   );
 };
