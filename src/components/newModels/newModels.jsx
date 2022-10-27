@@ -1,34 +1,22 @@
 import "./newModels.css";
 import Products from "../product/Product";
 import {
-  getDataSuccessAction,
   getDataRequestAction,
-  setAmountAction,
-  getSplicedItems,
 } from "../../redux-store/entity/actions";
 import {
   charactersSelector,
-  characterStatusSelector,
 } from "../../redux-store/entity/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 const NewModels = () => {
   const dispatch = useDispatch();
-  // const characters = useSelector(charactersSelector);
-  const items = useSelector((state) => state.entity.splicedItems)
-  const status = useSelector(characterStatusSelector);
+  const characters = useSelector(charactersSelector);
+  const items = characters.slice(0, 10);
 
   useEffect(() => {
     dispatch(getDataRequestAction());
   }, []);
-
-  // dispatch(getSplicedItems());
-
-  // const plusFunc = () =>{
-  //   dispatch(setAmountAction());
-  // }
-//onClick={() => plusFunc()}
 
   return (
     <div className="NewModels">
