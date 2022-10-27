@@ -9,16 +9,13 @@ function ProductPopup({active, name, gender, price, setActive, id}) {
   const dispatch = useDispatch();
   const email = useSelector((state) => state.entity.email);
   const cart = useSelector((state) => state.cart.cart);
-  const [value, setValue] = useState(1);
+  const [count, setCount] = useState(1);
   const [activeCount, setActiveCount] = useState(false)
-
   const isRegister = email !== null;
-  const isExist = email !== null && cart.length !== 0;
-  if(isExist){
-    localStorage.setItem(email, JSON.stringify(cart));
-  }
-  const customFunc = (cart, id, name, price, gender) =>{
-    dispatch(setCartAction(cart, id, name, price, gender, 2));
+  const isExist = email !== null && cart !== null && cart.length !== 0;
+  const customFunc = (cart, id, name, price, gender, count) =>{
+    dispatch(setCartAction(cart, id, name, price, gender, count));
+    
   }
   const likeFunc = (name, price, gender) => {
     dispatch(setLikeAction(name, price, gender))
@@ -72,14 +69,14 @@ function ProductPopup({active, name, gender, price, setActive, id}) {
           <div className="productInfoButtonHolder" onClick={e => e.stopPropagation()}>
             {activeCount && <div className="countHolder">
               <div className="countNumbersHolder">
-                <div className="countNumber" onClick={() => setValue(1)}>1</div>
-                <div className="countNumber" onClick={() => setValue(2)}>2</div>
-                <div className="countNumber" onClick={() => setValue(3)}>3</div>
-                <div className="countNumber" onClick={() => setValue(4)}>4</div>
+                <div className="countNumber" onClick={() => setCount(1)}>1</div>
+                <div className="countNumber" onClick={() => setCount(2)}>2</div>
+                <div className="countNumber" onClick={() => setCount(3)}>3</div>
+                <div className="countNumber" onClick={() => setCount(4)}>4</div>
               </div>
             </div>}
-            <button className="productCount" onClick={() => activeFunc(activeCount, setActiveCount)}>КОЛИЧЕСТВО {`(${value})`}</button>
-            {isRegister ? <button className="productCart" onClick={(e) => {customFunc(cart, id, name, price, gender, value); e.stopPropagation()}}>ДОБАВИТЬ В КОРЗИНУ</button>
+            <button className="productCount" onClick={() => activeFunc(activeCount, setActiveCount)}>КОЛИЧЕСТВО {`(${count})`}</button>
+            {isRegister ? <button className="productCart" onClick={(e) => {customFunc(cart, id, name, price, gender, count); e.stopPropagation()}}>ДОБАВИТЬ В КОРЗИНУ</button>
             : <button className="productCart" onClick={() => alert("Сначала зайдите в аккаунт")}>ДОБАВИТЬ В КОРЗИНУ</button>}
           </div>
         </div>

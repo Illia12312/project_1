@@ -6,7 +6,7 @@ import arrow from './arrow.png';
 
 
 
-const Item = ({name}) =>{
+const Item = ({name, items, setItem}) =>{
     const [open, setOpen] = useState(false)
 
     const openFunc = () =>{
@@ -23,7 +23,7 @@ const Item = ({name}) =>{
             </div>
             <ul className={open ? 'filterItemsHolder open' : 'filterItemsHolder'}>
                 <li className="filterItem">
-                    <Checkbox name='Nike' key='fdfd'/>
+                    <Checkbox name='Nike'  brand='nike' key='fdfd' items={items} setItem={setItem}/>
                 </li>
                 <li className="filterItem">
                     <Checkbox name='Jordan' key='fdfddvdv'/>

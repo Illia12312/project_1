@@ -6,7 +6,6 @@ import {
     SET_AMOUNT,
     GET_SPLICED_ITEMS,
   } from "./constants";
-  
   import { FETCH_STATUSES } from "../../constants/index";
   
   const initialState = {
@@ -58,7 +57,7 @@ import {
         case GET_SPLICED_ITEMS:
         return{
           ...state,
-          splicedItems: state.characters.splice(0, state.amount),
+          splicedItems: state.characters.slice(0, state.amount),
         };
       default:
         return { ...state };

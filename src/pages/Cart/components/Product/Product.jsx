@@ -1,22 +1,28 @@
 import './Product.css';
-import up from './img/icons/icon-up.svg';
-import down from './img/icons/icon-down.svg';
 import cross from './img/icons/cross.svg';
 import kross from '../../../../img/sneaker.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeCartAction, setCartAction } from 'redux-store/cart/actions';
+import { useState } from 'react';
 
-const Product = () =>{
+const Product = ({name, count, price, id, email}) =>{
+    const dispatch = useDispatch();
+    const deleteFunc = (id) =>{
+        dispatch(removeCartAction(id));
+    }
+
     return(
         <section className="product">
             <div className="productImgg"><img src={kross} alt="Apple watch"/></div>
-            <div className="productTitle">Apple watch</div>
+            <div className="productTitle">{name}</div>
             <div className="productCountСart">
                 <div className="countCart">
-                    1 ШТ.
+                    {count} ШТ.
                 </div>
             </div>
-            <div className="productPrice">6000 грн.</div>
+            <div className="productPrice">{price} грн.</div>
             <div className="productControls">
-                <button type="button" className='buttonImg'>
+                <button type="button" className='buttonImg' onClick={() => deleteFunc(id)}>
                     <img src={cross} alt="Delete"/>
                 </button>
             </div>

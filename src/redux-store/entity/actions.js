@@ -7,8 +7,7 @@ import {
     SET_AMOUNT,
     GET_SPLICED_ITEMS,
   } from "./constants";
-  
-  
+
   export const getDataRequestAction = () => ({
     type: GET_DATA_REQUEST,
   });

@@ -1,12 +1,18 @@
 import {
     SET_CART,
     SET_LIKE,
-    REMOVE_LIKE
+    REMOVE_LIKE,
+    SET_CART_COUNT,
+    SET_CART_PRICE,
+    REMOVE_CART,
+    RESET_CART,
   } from "./constants";
   
 const initialState = {
   cart: [],
   like: [],
+  cartCount: 0,
+  cartPrice: 0,
 };
   
   const reducer = (state = initialState, action) => {
@@ -34,6 +40,24 @@ const initialState = {
           ...state,
           like: state.like.filter((item) => item.id !== action.payload.id)
         };
+        case REMOVE_CART:
+          return{
+            ...state,
+            cart: state.cart.filter((item) => item.id !== action.payload.id)
+          }
+          case RESET_CART:
+          return{
+            ...state,
+            cart: null,
+          }
+        // case SET_CART_PRICE:
+        //   return{
+        //   //   ...state,
+        //   //   cartPrice: state.cart.reduce(
+        //   //     (previousValue, currentValue) => previousValue + currentValue,
+        //   //     0
+        //   //   ),
+        //   };
       default:
         return { ...state };
     }

@@ -47,9 +47,12 @@ const Header = () => {
           <span onClick={() => setLikeOpen(true)}>
             <img src={like} alt="like" className="imgLike headerIcon" />
           </span>
-          <Link to="/cart">
+          {isAuth ? <Link to="/cart">
             <img src={cart} alt="cart" className="imgCart headerIcon" />
-          </Link>
+          </Link> : 
+          <Link to="/login">
+            <img src={cart} alt="cart" className="imgCart headerIcon" />
+          </Link>}
           {isAuth ? (
             <Link to="/logOut">
               <img src={user} alt="user" className="imgUser headerIcon" />

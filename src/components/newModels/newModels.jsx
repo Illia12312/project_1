@@ -14,22 +14,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 const NewModels = () => {
-  // const [data, setData] = useState([]);
   const dispatch = useDispatch();
-  const characters = useSelector(charactersSelector);
-  // const items = useSelector((state) => state.entity.splicedItems)
-  // const status = useSelector(characterStatusSelector);
-  // console.log(items);
-
-  // if(status === "SUCCESS" && items.length !== 0){
-  //   dispatch(getSplicedItems())
-  //   setData(items);
-  //}
-  
+  // const characters = useSelector(charactersSelector);
+  const items = useSelector((state) => state.entity.splicedItems)
+  const status = useSelector(characterStatusSelector);
 
   useEffect(() => {
     dispatch(getDataRequestAction());
   }, []);
+
+  // dispatch(getSplicedItems());
+
+  // const plusFunc = () =>{
+  //   dispatch(setAmountAction());
+  // }
+//onClick={() => plusFunc()}
 
   return (
     <div className="NewModels">
@@ -38,7 +37,7 @@ const NewModels = () => {
         <h3 className="NewModelsSmallTitle">НОВЫЕ ПОСТУПЛЕНИЯ</h3>
       </div>
       <div className="newItemsHolder">
-        {characters.map((i) => (
+        {items.map((i) => (
           <Products
             id={i.id}
             name={i.brand}

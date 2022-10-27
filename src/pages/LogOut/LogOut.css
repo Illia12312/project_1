@@ -1,6 +1,7 @@
 .logOut {
   margin: 60px;
   text-align: center;
+  position: relative;
 }
 
 .logOutTitle {
@@ -21,4 +22,35 @@
 
 .logOutButton:hover {
   background: rgb(172, 85, 85);
+}
+
+.profileFoto{
+  margin-bottom: 60px;
+  display: flex;
+  justify-content:end;
+  gap: 20px;
+}
+
+#profileFotoChanger{
+  display: none;
+  opacity: 0;
+  z-index: -1;
+}
+
+.profileFotoChangerLabel{
+  width: 150px;
+  height: 40px;
+  padding-top: 8px;
+  background-color: #999;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer;
+  margin: auto 0;
+}
+
+.profileImg{
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  border-radius: 50%;
 }
