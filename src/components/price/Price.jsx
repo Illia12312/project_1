@@ -1,14 +1,18 @@
 import './Price.css';
 import { useState } from 'react';
 import arrow from './../Item/arrow.png';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-const Price = ({item, setItem}) =>{
-    const [minValue, setMinValue] = useState(0);
-    const [maxValue, setMaxValue] = useState(100000);
+const Price = ({item, setItem, gender}) =>{
+    const [minValue, setMinValue] = useState(4);
+    const [maxValue, setMaxValue] = useState(78001);
     const [open, setOpen] = useState(false);
-    console.log(item);
-    
-    // setItem(item.filter((i) => i.price > minValue && i.price < maxValue));
+    const characters = useSelector((state) => state.entity.characters);
+
+    useEffect(() =>{
+        setItem(characters.filter((i) => i.price > minValue && i.price < maxValue && i.gender === gender));
+    }, [minValue, maxValue])
 
     const openFunc = () =>{
         open ? setOpen(false) : setOpen(true);

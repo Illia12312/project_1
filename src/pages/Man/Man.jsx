@@ -56,7 +56,7 @@ function Man() {
           <nav className="navFilter">
             <Item name="БРЕНДЫ"/>
             <SizeItem/>
-            <Price item={item} setItem={setItem}/>
+            <Price item={item} setItem={setItem} gender='man'/>
           </nav>
         </div>
         <div className="productsHolder">
