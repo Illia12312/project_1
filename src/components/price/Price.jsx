@@ -2,8 +2,13 @@ import './Price.css';
 import { useState } from 'react';
 import arrow from './../Item/arrow.png';
 
-const Price = () =>{
-    const [open, setOpen] = useState(false)
+const Price = ({item, setItem}) =>{
+    const [minValue, setMinValue] = useState(0);
+    const [maxValue, setMaxValue] = useState(100000);
+    const [open, setOpen] = useState(false);
+    console.log(item);
+    
+    // setItem(item.filter((i) => i.price > minValue && i.price < maxValue));
 
     const openFunc = () =>{
         open ? setOpen(false) : setOpen(true);
@@ -21,14 +26,14 @@ const Price = () =>{
                     <div className="filterInputHolder">
                         <label htmlFor="minPrice" className='inputLabel'>
                             <span>ОТ</span>
-                            <input type="number" className="filterInput minPrice" id='maxPrice' value='2500'/>
+                            <input type="number" className="filterInput minPrice" id='minPrice' onChange={(e) => setMinValue(e.target.value)} value={minValue}/>
                         </label>
                     </div>
                     <div className="filterInputLine"></div>
                     <div className="filterInputHolder">
                     <label htmlFor="minPrice" className='inputLabel'>
                             <span>ДО</span>
-                            <input type="number" className="filterInput maxPrice" id='minPrice' value='10000'/>
+                            <input type="number" className="filterInput maxPrice" id='maxPrice' onChange={(e) => setMaxValue(e.target.value)} value={maxValue}/>
                         </label>
                     </div>
                 </div>

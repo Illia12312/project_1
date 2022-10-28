@@ -6,62 +6,73 @@ import Product from "components/product/Product";
 import SizeItem from "components/sizeItem/SizeItem";
 import { useEffect } from "react";
 import { useState } from "react";
+import _ from "lodash";
+import { useSelector, useDispatch } from "react-redux";
+import { getDataRequestAction, sortDescAction } from "redux-store/entity/actions";
+import { charactersSelector } from "redux-store/entity/selectors";
 
 const Kids = () => {
-const [value, setValue] = useState("");
-
-const [data, setData] = useState([]);
-useEffect(() => {
-    fetch(
-    `https://633db5337e19b17829149247.mockapi.io/sneakers/sneakers/?sortBy${value}&`
-    )
-    .then((response) => response.json())
-    .then((data) => {
-        setData(data);
-    });
-    console.log(value);
-}, [value]);
-
-return(
-<div className="productPage">
-    <div className="productsItemWrap">
-    <h3 className="productsItemTitle">ДЛЯ ДЕТЕЙ</h3>
-    <select
-        name="select"
-        id="manSelect"
-        className="manSelect"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        >
-        <option value="">Все</option>
-        <option value="=price&order=asc">Цена по возрастанию</option>
-        <option value="=price&order=desc">Цена по убыванию</option>
-        </select>
-    </div>
-    <div className="filterWrap">
-    <div className="filter">
-        <nav className="navFilter">
-        <Item name="БРЕНДЫ" />
-        <Item name="КОЛЛЕКЦИИ" />
-        <SizeItem />
-        <Price />
-        </nav>
-    </div>
-    <div className="productsHolder">
-        {data.map(
-        (item) =>
-            item.gender === "kid" && (
-            <Product
-                name={item.id}
-                gender={item.gender}
-                key={item.id}
-                price={item.price}
-            />
-            )
-        )}
-    </div>
-    </div>
-</div>
+    const [item, setItem] = useState([]);
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getDataRequestAction());
+    }, []);
+    const data = useSelector(charactersSelector);
+  
+    useEffect(() => {
+      setItem(data);
+    }, [])
+  
+    const funcSort = (value) =>{
+      if(value === 'all'){
+        setItem(data);
+      }
+      else if(value === 'asc'){
+        setItem(_.orderBy(data, ['price'], ['asc']));
+      }
+      else if(value === 'desc'){
+        setItem(_.orderBy(data, ['price'], ['desc']));
+      }
+    }
+  
+    return (
+      <div className="productPage">
+        <div className="productsItemWrap">
+          <h3 className="productsItemTitle">ДЛЯ ДЕТЕЙ</h3>
+          <select
+            name="select"
+            id="manSelect"
+            className="manSelect"
+            onChange={(e) => funcSort(e.target.value)}
+          >
+            <option value="all">Все</option>
+            <option value="asc">Цена по возрастанию</option>
+            <option value="desc">Цена по убыванию</option>
+          </select>
+        </div>
+        <div className="filterWrap">
+          <div className="filter">
+            <nav className="navFilter">
+              <Item name="БРЕНДЫ"/>
+              <SizeItem/>
+              <Price item={item} setItem={setItem}/>
+            </nav>
+          </div>
+          <div className="productsHolder">
+          {item.map(
+              (item) =>
+                item.gender === "kid" && (
+                  <Product
+                    name={item.id}
+                    gender={item.gender}
+                    key={item.id}
+                    price={item.price}
+                  />
+                )
+            )}
+          </div>
+        </div>
+      </div>
 )
 };
 

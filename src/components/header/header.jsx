@@ -74,7 +74,8 @@ const Header = () => {
         <Link className="customLink" to="/kids">
           <div className="infoItem">Дети</div>
         </Link>
-        <div className="infoItem" onMouseOver={() => setActive(true)} >Бренды</div>
+        <div className="infoItem" onMouseOver={() => setActive(true)} >Бренды
+        </div>
         <div className={active ? "brandsHolder active" : "brandsHolder" }  onMouseLeave={() => setActive(false)}>
           <Link className="customLink" to='/brands/nike'>
             <div className="brandItem">NIKE</div>

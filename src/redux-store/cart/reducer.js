@@ -6,6 +6,7 @@ import {
     SET_CART_PRICE,
     REMOVE_CART,
     RESET_CART,
+    SET_CART_FROM_LOCAL,
   } from "./constants";
   
 const initialState = {
@@ -17,6 +18,11 @@ const initialState = {
   
   const reducer = (state = initialState, action) => {
     switch (action.type) {
+      // case SET_CART_FROM_LOCAL:
+      //   return {
+      //     ...state,
+      //     cart: [...state.cart, action.payload.cart],
+      //   };
       case SET_CART:
         return {
           ...state,

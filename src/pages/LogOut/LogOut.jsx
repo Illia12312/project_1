@@ -48,7 +48,7 @@ const LogOut = () => {
           className="profileImg" />
         </div>
       </form>
-      <h3 className="logOutTitle">Xотите выйти из аккаунта?</h3>
+      <h3 className="logOutTitle">Xотите выйти из {email}?</h3>
       <button className="logOutButton" onClick={backFunc}>
         ВЫЙТИ
       </button>

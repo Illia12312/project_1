@@ -1,15 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 import './Cart.css';
 import Product from './components/Product/Product';
-import { setCartPriceACtion } from 'redux-store/cart/actions';
+import { setCartPriceACtion, setCartAction } from 'redux-store/cart/actions';
+import { useState } from 'react';
 
 function Cart() {
   const dispatch = useDispatch();
-  const email = useSelector((state) => state.entity.email)
-  // const cart = JSON.parse(localStorage.getItem(email));
-  // dispatch(setCartPriceACtion(cart));
-  // const fullPrice = useSelector((state) => state.cart.cartPrice);
-  console.log(email)
+  const cart = useSelector((state) => state.cart.cart);
+  const email = useSelector((state) => state.entity.email);
 
   return (
     <div className="cartWrapper">
@@ -26,9 +24,9 @@ function Cart() {
             <div className="cartHeaderCost">стоимость</div>
           </header>
           
-          {/* {cart === null ? <div className='emptyCart'>НИЧЕГО НЕТ</div> : cart.map((i) => (
+          {cart.length === 0 ? <div className='emptyCart'>НИЧЕГО НЕТ</div> : cart.map((i) => (
             <Product name={i.title} price={i.price} count={i.count} key={i.id} id={i.id} email={email}/>
-          ))} */}
+          ))}
 
           <footer className="cartFooter">
             <div className="cartFooterCount">1 шт.</div>

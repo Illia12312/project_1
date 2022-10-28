@@ -34,6 +34,8 @@ function Man() {
     }
   }
 
+  console.log(item);
+
   return (
     <div className="productPage">
       <div className="productsItemWrap">
@@ -52,9 +54,9 @@ function Man() {
       <div className="filterWrap">
         <div className="filter">
           <nav className="navFilter">
-            <Item name="БРЕНДЫ" items={item} setItem={setItem}/>
-            <SizeItem items={item} setItem={setItem}/>
-            <Price />
+            <Item name="БРЕНДЫ"/>
+            <SizeItem/>
+            <Price item={item} setItem={setItem}/>
           </nav>
         </div>
         <div className="productsHolder">

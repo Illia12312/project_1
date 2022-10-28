@@ -1,21 +1,20 @@
 import "./ProductPopup.css";
 import kros from './img/kros.jpg';
 import heart from './img/heart.png';
-import { setCartAction, setLikeAction } from "redux-store/cart/actions";
+import { setCartAction, setLikeAction, setCartFromLocalAction } from "redux-store/cart/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 function ProductPopup({active, name, gender, price, setActive, id}) {
   const dispatch = useDispatch();
-  const email = useSelector((state) => state.entity.email);
   const cart = useSelector((state) => state.cart.cart);
+  const email = useSelector((state) => state.entity.email);
   const [count, setCount] = useState(1);
   const [activeCount, setActiveCount] = useState(false)
-  const isRegister = email !== null;
-  const isExist = email !== null && cart !== null && cart.length !== 0;
+
+
   const customFunc = (cart, id, name, price, gender, count) =>{
-    dispatch(setCartAction(cart, id, name, price, gender, count));
-    
+    dispatch(setCartAction(cart, id, name, price, gender, count));    
   }
   const likeFunc = (name, price, gender) => {
     dispatch(setLikeAction(name, price, gender))
@@ -76,8 +75,7 @@ function ProductPopup({active, name, gender, price, setActive, id}) {
               </div>
             </div>}
             <button className="productCount" onClick={() => activeFunc(activeCount, setActiveCount)}>КОЛИЧЕСТВО {`(${count})`}</button>
-            {isRegister ? <button className="productCart" onClick={(e) => {customFunc(cart, id, name, price, gender, count); e.stopPropagation()}}>ДОБАВИТЬ В КОРЗИНУ</button>
-            : <button className="productCart" onClick={() => alert("Сначала зайдите в аккаунт")}>ДОБАВИТЬ В КОРЗИНУ</button>}
+            <button className="productCart" onClick={(e) => {customFunc(cart, id, name, price, gender, count); e.stopPropagation()}}>ДОБАВИТЬ В КОРЗИНУ</button>
           </div>
         </div>
       </div>
